@@ -52,7 +52,7 @@ public class Test {
 
 
         System.out.println("---------------------------------------------");
-        System.out.println("Test add(index, val): try to add a value at a specfic index from the list.");
+        System.out.println("Test add(index, val): try to add a value at a specfic index from the list, and an invalid index from the list.");
         System.out.println("Expected: 10, 100, 20, 30, 40, 50 ");
         
 
@@ -93,5 +93,43 @@ public class Test {
             System.out.println(e);
         }
         System.out.println(list1.isEmpty());
+
+        System.out.println("---------------------------------------------");
+        System.out.println("Test .contains(), to see if the list contains a value.");
+        System.out.println("Expected: true, false");
+        IntegerArrayList list2 = new IntegerArrayList();
+        for (int val = 10; val <= 50; val+=10)
+        {
+            list2.add(val);
+        }
+        System.out.println(list2.contains(10));
+        System.out.println(list2.contains(999));
+
+
+        System.out.println("---------------------------------------------");
+        System.out.println("Test .indexOf(), to see if the list contains a value.");
+        System.out.println("Expected: 0, -1");
+       
+        System.out.println(list2.indexOf(10));
+        System.out.println(list2.indexOf(999));
+
+        System.out.println("---------------------------------------------");
+        System.out.println("Test .equals(), to see if two lists equal each other.");
+        System.out.println("Expected: true, false");
+        IntegerArrayList list3 = new IntegerArrayList();
+        IntegerArrayList list4 = new IntegerArrayList();
+        for (int val = 10; val <= 50; val+=10)
+        {
+            list3.add(val);
+        }
+        for (int val = 10; val <= 40; val+=10)
+        {
+            list4.add(val);
+        }
+    
+        System.out.println(list2.equals(list3));
+
+        System.out.println(list3.equals(list4));
+
     }
 }

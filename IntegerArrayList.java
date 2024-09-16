@@ -31,6 +31,10 @@ public class IntegerArrayList implements IntegerList{
     public void add(int index, Integer val)
     {
         resizeInternalArrayIfNecessary();
+        if (index < 0 || index >= size)
+        {
+            throw new IndexOutOfBoundsException("Index: " + index);
+        }
         for (int i=size; i > index; i--)
         {
             data[i] = data[i-1]; 
@@ -82,17 +86,53 @@ public class IntegerArrayList implements IntegerList{
         return false; 
     }
     public boolean contains(Integer val)
-    {
-        return false;
+    {   
+        boolean contains = false;
+        for (int i=0; i<size; i++)
+        {
+            if (data[i] == val)
+            {
+                contains = true;
+            } 
+        }
+        return contains;
     }
     public int indexOf(Integer val)
     {
-        return -1;
+        int index = -1; 
+        for (int i=0; i<size; i++)
+        {
+            if (data[i]== val)
+            {
+                index = i;
+            }
+        }
+        return index;
     }
     public boolean equals(List<Integer> other)
     {
-        return false;
+        boolean equals = false;
+        if (data.length != other.size())
+        {
+            equals = false;
+        }
+        else{
+        for (int i=0; i<size; i++)
+        {
+            
+            if (data[i] == other.get(i))
+            {
+                equals = true;
+            }
+            else{
+                equals = false;
+                break;
+            }
+        }
+        }   
+        return equals;
     }
+
     public String toString()
     {
         String output = "[";
