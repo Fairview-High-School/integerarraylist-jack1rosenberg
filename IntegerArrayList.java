@@ -49,7 +49,6 @@ public class IntegerArrayList implements IntegerList{
         {
             throw new IndexOutOfBoundsException("Index: " + index);
         }
-        else
         data[index] = val;
     }
 
@@ -62,7 +61,23 @@ public class IntegerArrayList implements IntegerList{
 
     public Integer remove(int index)
     {
-        return index;
+        if (index < 0 || index >= size)
+        {
+            throw new IndexOutOfBoundsException("Index: " + index);
+        }
+        Integer removed = data[index];
+        Integer[] temp = new Integer[data.length-1];
+        for (int i = size; i>= index; i--)
+        {
+            temp[i] = data[i+1];
+        }
+        for (int i=0; i<index; i++)
+        {
+            temp[i]= data[i];
+        }
+        data = temp;
+        size--;
+        return removed;
     }
 
     public Integer get(int index)

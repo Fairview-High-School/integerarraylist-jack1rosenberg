@@ -1,6 +1,5 @@
 public class Test {
 
-
     public static void main(String[] args)
     {
         IntegerArrayList list = new IntegerArrayList();
@@ -131,5 +130,15 @@ public class Test {
 
         System.out.println(list3.equals(list4));
 
+        System.out.println("---------------------------------------------");
+        System.out.println("Test remove(index): try to remove the item at an index from the list.");
+        System.out.println("Expected: 40, [10,20,30,50]");
+       try{
+            System.out.println(list3.remove(3));
+        }
+        catch(IndexOutOfBoundsException e){
+            System.out.println(e);
+        }
+        System.out.println(list3.toString());
     }
 }
